@@ -35,6 +35,18 @@ _**Setup the project:**_
 >> npm i babel/cli babel/core babel/preset-env babel/node morgan nodemon --save-dev
 ```
 
+### Folder structure:
+
+```mermaid
+flowchart LR
+  src([/src]) --> controllers[[/controllers]]
+  src([/src]) --> database[[/database]]
+  src([/src]) --> routes[[/routes]]
+  src([/src]) --> app.js
+  src([/src]) --> index.js>index.js]
+  src([/src]) --> config.js
+```
+
 _**Status:**_
 
 - On Progress.
