@@ -1,5 +1,5 @@
 //* Import config module
-import { config } from "dotenv ";
+import { config } from "dotenv";
 
 //* Call the config function
 config();
@@ -8,6 +8,6 @@ config();
 export default {
   host: process.env.HOST || "",
   database: process.env.DATABASE || "",
-  user: process.env.USER || "",
+  user: process.env.USR || "",
   password: process.env.PASSWORD || "",
 };

@@ -6,7 +6,7 @@ import { methods as lenguageControllers } from "./../controllers/language.contro
 const router = Router();
 
 //* Route to root path
-router.get("/getAllLanguages", lenguageControllers.getAllLanguages);
+router.get("/getAll", lenguageControllers.getAllLanguages);
 
 //* Export the router variable
 export default router;
