@@ -22,7 +22,18 @@ _**Setup the project:**_
   - dotenv -> to store the environment variables.
   - express -> to create the server with javascript and nodeJS.
   - promise-mysql -> to create async connection with database.
+  - babel/cli -> to compile the code with babel.
+  - babel/core -> to compile the code with babel.
+  - babel/preset-env -> to compile the code with babel.
+  - babel/node -> to compile the code with babel.
+  - morgan -> to console log the requests.
+  - nodemon -> to restart the server when the code changes.
 - Create the database.
+
+```code
+>> npm i dotenv express promise-mysql --save
+>> npm i babel/cli babel/core babel/preset-env babel/node morgan nodemon --save-dev
+```
 
 _**Status:**_
 
