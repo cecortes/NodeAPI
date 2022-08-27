@@ -5,8 +5,11 @@ import { methods as lenguageControllers } from "./../controllers/language.contro
 //* Create a router variable and assign express.Router() to it
 const router = Router();
 
-//* Route to root path
+//* Route to get all languages
 router.get("/getAll", lenguageControllers.getAllLanguages);
+
+//* Route to add a new language
+router.post("/addNew", lenguageControllers.addLanguage);
 
 //* Export the router variable
 export default router;

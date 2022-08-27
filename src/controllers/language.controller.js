@@ -27,7 +27,52 @@ const getAllLanguages = async (req, res) => {
   }
 };
 
+//* Controller to add a new language
+const addLanguage = async (req, res) => {
+  // Handle errors
+  try {
+    // Destructuring the request body
+    const { name, programmers } = req.body;
+
+    // Verify if body is valid
+    if (name === undefined || programmers === undefined) {
+      // Send the error response
+      res.status(400).json({
+        message: ">> Error adding new language. Body is not valid.",
+      });
+    }
+
+    // Create a language object
+    const language = {
+      name,
+      programmers,
+    };
+
+    // Create a connection to the database
+    const connection = await getConnection();
+
+    // Create a query to add a new language
+    const insertQuery = await connection.query(
+      "INSERT INTO language SET ?",
+      language
+    );
+
+    // Send the response
+    res.json({
+      message: ">> Language added successfully.",
+      insertQuery,
+    });
+  } catch (error) {
+    // Send the error response
+    res.status(500).json({
+      message: ">> Error adding a new language.",
+      error: error.message,
+    });
+  }
+};
+
 //* Export methods
 export const methods = {
   getAllLanguages,
+  addLanguage,
 };

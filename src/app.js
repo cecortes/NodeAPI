@@ -15,6 +15,7 @@ app.set("port", process.env.PORT || 6969);
 
 //* Middlewares
 app.use(morgan("dev"));
+app.use(express.json());
 
 //* Routes
 app.use("/api/languages", languageRoutes);
