@@ -11,6 +11,21 @@ Rest API with Node.JS, Express, and MySQL.
 
 ---
 
+## Usage:
+
+- http://localhost:6969/api/languages/getAll (GET)
+  - Returns all the data from the database.
+- http://localhost:6969/api/languages/getById/:id (GET)
+  - Returns the data from the database with the id.
+- http://localhost:6969/api/languages/addNew (POST) (JSON {"name": varchar, "programmers": int})
+  - Adds a new language to the database.
+- http://localhost:6969/api/languages/updateById/:id (PUT) (JSON {"name": varchar, "programmers": int})
+  - Updates the data from the database with the id.
+- http://localhost:6969/api/languages/deleteById/:id (DELETE)
+  - Deletes the data from the database with the id.
+
+---
+
 ## Logs:
 
 ### 27/09/2022
@@ -49,6 +64,6 @@ flowchart LR
 
 _**Status:**_
 
-- On Progress.
+- Done.
 
 ---
