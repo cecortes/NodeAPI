@@ -17,5 +17,8 @@ router.get("/getById/:id", lenguageControllers.getById);
 //* Delete a language by id
 router.delete("/deleteById/:id", lenguageControllers.deleteById);
 
+//* Update a language by id
+router.put("/updateById/:id", lenguageControllers.updateById);
+
 //* Export the router variable
 export default router;

@@ -142,10 +142,51 @@ const deleteById = async (req, res) => {
   }
 };
 
+//* Controller to update by id
+const updateById = async (req, res) => {
+  // Handle errors
+  try {
+    // Destructuring the request body
+    const { id } = req.params;
+    const { name, programmers } = req.body;
+
+    // Verify if body is valid
+    if (id === undefined || name === undefined || programmers === undefined) {
+      // Send the error response
+      res.status(400).json({
+        message: ">> Error updating language by id. Body is not valid.",
+        error: error.message,
+      });
+    }
+
+    // Create a connection to the database
+    const connection = await getConnection();
+
+    // Create a query to update a language by id
+    const updateQuery = await connection.query(
+      "UPDATE language SET name = ?, programmers = ? WHERE id = ?",
+      [name, programmers, id]
+    );
+
+    // Send the response
+    res.json({
+      message: ">> Language updated successfully.",
+      updateQuery,
+    });
+  } catch (error) {
+    // Send the error response
+    res.status(500).json({
+      message: ">> Error updating language by id.",
+      error: error.message,
+    });
+  }
+};
+
 //* Export methods
 export const methods = {
   getAllLanguages,
   addLanguage,
   getById,
   deleteById,
+  updateById,
 };
