@@ -11,5 +11,11 @@ router.get("/getAll", lenguageControllers.getAllLanguages);
 //* Route to add a new language
 router.post("/addNew", lenguageControllers.addLanguage);
 
+//* Route to get a language by id
+router.get("/getById/:id", lenguageControllers.getById);
+
+//* Delete a language by id
+router.delete("/deleteById/:id", lenguageControllers.deleteById);
+
 //* Export the router variable
 export default router;

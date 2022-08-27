@@ -71,8 +71,81 @@ const addLanguage = async (req, res) => {
   }
 };
 
+//* Controller to get by id
+const getById = async (req, res) => {
+  // Handle errors
+  try {
+    // Destructuring the request body
+    const { id } = req.params;
+
+    // Verify if body is valid
+    if (id === undefined) {
+      // Send the error response
+      res.status(400).json({
+        message: ">> Error getting language by id. Body is not valid.",
+      });
+    }
+
+    // Create a connection to the database
+    const connection = await getConnection();
+
+    // Create a query to get a language by id
+    const selectQuery = await connection.query(
+      "SELECT id, name, programmers FROM language WHERE id = ?",
+      [id]
+    );
+
+    // console debug the query
+    console.log(selectQuery);
+
+    // Send the response
+    res.json(selectQuery);
+  } catch (error) {}
+};
+
+//* Controller to delete by id
+const deleteById = async (req, res) => {
+  // Handle errors
+  try {
+    // Destructuring the request body
+    const { id } = req.params;
+
+    // Verify if body is valid
+    if (id === undefined) {
+      // Send the error response
+      res.status(400).json({
+        message: ">> Error deleting language by id. Body is not valid.",
+        error: error.message,
+      });
+    }
+
+    // Create a connection to the database
+    const connection = await getConnection();
+
+    // Create a query to delete a language by id
+    const deleteQuery = await connection.query(
+      "DELETE FROM language WHERE id = ?",
+      [id]
+    );
+
+    // Send the response
+    res.json({
+      message: ">> Language deleted successfully.",
+      deleteQuery,
+    });
+  } catch (error) {
+    // Send the error response
+    res.status(500).json({
+      message: ">> Error deleting language by id.",
+      error: error.message,
+    });
+  }
+};
+
 //* Export methods
 export const methods = {
   getAllLanguages,
   addLanguage,
+  getById,
+  deleteById,
 };
