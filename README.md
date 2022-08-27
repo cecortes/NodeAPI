@@ -19,6 +19,9 @@ _**Setup the project:**_
 
 - Create files and folders.
 - Install dependencies.
+  - dotenv -> to store the environment variables.
+  - express -> to create the server with javascript and nodeJS.
+  - promise-mysql -> to create async connection with database.
 - Create the database.
 
 _**Status:**_
